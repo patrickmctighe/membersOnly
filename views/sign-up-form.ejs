@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<header><%- include("./header")%></header>
+<body>
+    <div class="formContainer">
+    <h1>Sign Up Form</h1>
+  
+
+    <form class ="signUpForm"action="/sign-up" method="post">
+      <label for="member_first_name">First Name:</label>
+      <input type="text" name="member_first_name" required>
+      
+      <label for="member_last_name">Last Name:</label>
+      <input type="text" name="member_last_name" required>
+  
+      <label for="member_username">Username:</label>
+      <input type="text" name="member_username" required>
+  
+      <label for="member_password">Password:</label>
+      <input type="password" name="member_password" required>
+  
+      <label for="member_password_confirm">Confirm Password:</label>
+      <input type="password" name="member_password_confirm" required>
+  
+      <label for="member_email">Email:</label>
+      <input type="email" name="member_email" required>
+  
+      <label for="membership_status">Membership Status:</label>
+      <input type="text" name="membership_status" required>
+  
+      <button type="submit">Sign Up</button>
+    </form>
+</div>
+    <% if (errors && errors.length > 0) { %>
+        <ul>
+          <% errors.forEach(error => { %>
+            <li><%= error.msg %></li>
+          <% }); %>
+        </ul>
+      <% } %>
+    
+</body>
+</html>
