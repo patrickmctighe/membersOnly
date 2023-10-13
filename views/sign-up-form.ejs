@@ -1,47 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<header><%- include("./header")%></header>
-<body>
-    <div class="formContainer">
-    <h1>Sign Up Form</h1>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
 
-    <form class ="signUpForm"action="/sign-up" method="post">
-      <label for="member_first_name">First Name:</label>
-      <input type="text" name="member_first_name" required>
-      
-      <label for="member_last_name">Last Name:</label>
-      <input type="text" name="member_last_name" required>
-  
-      <label for="member_username">Username:</label>
-      <input type="text" name="member_username" required>
-  
-      <label for="member_password">Password:</label>
-      <input type="password" name="member_password" required>
-  
-      <label for="member_password_confirm">Confirm Password:</label>
-      <input type="password" name="member_password_confirm" required>
-  
-      <label for="member_email">Email:</label>
-      <input type="email" name="member_email" required>
-  
-      <label for="membership_status">Membership Status:</label>
-      <input type="text" name="membership_status" required>
-  
-      <button type="submit">Sign Up</button>
-    </form>
-</div>
-    <% if (errors && errors.length > 0) { %>
-        <ul>
-          <% errors.forEach(error => { %>
-            <li><%= error.msg %></li>
-          <% }); %>
-        </ul>
+  <body>
+    <div class="container">
+      <header><%- include("./header")%></header>
+      <div class="formContainer">
+        <div class="signUpFormContainer">
+          <p>Sign Up Form</p>
+
+          <form class="signUpForm" action="/sign-up" method="post">
+            <div class="formInput">
+              <label for="member_first_name">First Name:</label>
+              <input type="text" name="member_first_name" required />
+            </div>
+            <div class="formInput">
+              <label for="member_last_name">Last Name:</label>
+              <input type="text" name="member_last_name" required />
+            </div>
+            <div class="formInput">
+              <label for="member_username">Username:</label>
+              <input type="text" name="member_username" required />
+            </div>
+            <div class="formInput">
+              <label for="member_password">Password:</label>
+              <input type="password" name="member_password" required />
+            </div>
+            <div class="formInput">
+              <label for="member_password_confirm">Confirm Password:</label>
+              <input type="password" name="member_password_confirm" required />
+            </div>
+            <div class="formInput">
+              <label for="member_email">Email:</label>
+              <input type="email" name="member_email" required />
+            </div>
+            <div class="formInputStatus">
+              <label>Membership Status:</label>
+              <div>
+                <input
+                  type="checkbox"
+                  name="membership_status"
+                  value="Admin"
+                  id="adminCheckbox"
+                />
+                <label for="adminCheckbox">Admin</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="membership_status"
+                  value="Member"
+                  id="memberCheckbox"
+                  checked
+                />
+                <label for="memberCheckbox">Member</label>
+              </div>
+            </div>
+            <div class="signUpButton">
+              <button type="submit">Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <% if (errors && errors.length > 0) { %>
+      <ul>
+        <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+        <% }); %>
+      </ul>
       <% } %>
-    
-</body>
+    </div>
+  </body>
 </html>

@@ -1,16 +1,159 @@
 body{
-    background-color: grey;
+    background: url(https://preview.redd.it/al0schdiybk51.jpg?width=1920&format=pjpg&auto=webp&s=593106abe87ade6faafaa7c68953981d929cad26);
+    font-family: 'Courier Prime', monospace;
+    color:rgb(79, 206, 5)
+
 }
+.container{
+    min-width:50em;
+    min-height: 50em;
+    max-width:50em;
+    max-height: 50em;
+    overflow-y: auto;
+    border: 4px solid grey;
+    border-top: 20px solid grey;
+    background-color: black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+input{
+    background-color:rgb(79, 206, 5) ;
+}
+
+button{
+    background-color: lightgray;
+    border: 2px solid grey;
+    font-family: 'Courier Prime', monospace;
+}
+p{
+margin:.25em
+}
+/*header*/
+.headerArea{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+    border-bottom: 2px dotted rgb(79, 206, 5);
+}
+/*sign up form*/
 .signUpForm{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    gap:1em
+}
+.signUpFormContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 5em;
+    gap:.5em
 }
+/*create message form*/
 .formContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 5em;
+}
+.createMessageForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:1em
 }
 
+#message_text{
+background-color:rgb(79, 206, 5) ;
+height: 7em;
+width:14em;
+}
+.signUpButton{
+    align-self: center;
+}
+.formInputStatus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    gap:1em
+}
+/*index*/
+.indexLogInContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.communityLogs{
+    padding-left: 2em;
+    padding-bottom: .5em;
+}
+.logInUserPass{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: .5em;
+}
+
+.indexHead{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+padding:1em
+}
+.messageContainer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    border-top: 2px solid rgb(79, 206, 5);
+  padding:.75em
+}
+
+.titleMember{
+    display:flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+.deleteButton{
+    background-color: transparent;
+    border:none;
+    color:rgb(79, 206, 5);
+}
+
+
+@media (min-width:640px) { body {font-size:1rem;} }
+
+@media (min-width:414px) { 
+    .container{
+    height: 90%;
+    width: 98%;
+        overflow-y: auto;
+        border: 4px solid grey;
+        border-top: 20px solid grey;
+        background-color: black;
+      
+    }
+    input{
+        background-color:rgb(79, 206, 5) ;
+    }
+    
+    button{
+        background-color: lightgray;
+        border: 2px solid grey;
+        font-family: 'Courier Prime', monospace;
+    }
+    p{
+    margin:.25em
+    }
+    
+    body {font-size:.5rem;} }

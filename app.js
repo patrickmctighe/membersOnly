@@ -16,7 +16,7 @@ db.on("error", console.error.bind(console, "mongo connection error"));
 
 
 const app = express();
-app.set("views", (__dirname,"views"));
+app.set("views", path.join(__dirname,"views"));
 app.set("view engine", "ejs");
 
 

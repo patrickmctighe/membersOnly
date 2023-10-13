@@ -9,7 +9,9 @@ const MemberSchema = new Schema({
     member_password: {type: String, required: true, maxlength: 100},
     member_password_confirm: {type: String, required: true, maxlength: 100},
     member_email: {type: String, required: true, maxlength: 100},
-    membership_status: {type: String, required: true, maxlength: 100},
+    membership_status: [
+        { type: String, enum: ['Admin', 'Member'], default: ['Member'] }
+    ]
 
 });
 

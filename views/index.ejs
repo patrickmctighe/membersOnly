@@ -1,23 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-    <header><%- include("./header")%></header>
-  <% if (member) {%>
-    <h1>WELCOME BACK <%= member.member_username %></h1>
-    <a href="/log-out">LOG OUT</a>
-  <% } else { %>
-    <h1>please log in</h1>
-    <form action="/log-in" method="POST">
-      <label for="username">Username</label>
-      <input name="username" placeholder="username" type="text" />
-      <label for="password">Password</label>
-      <input name="password" type="password" />
-      <button>Log In</button>
-    </form>
-  <%}%>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <header><%- include("./header")%></header>
+      <% if (member && member.membership_status.includes("Admin")){%>
+      <div class="indexHead">
+        <div class="indexMember">
+          <% if (member && member.membership_status.includes("Member")){%>
+          <p>Current Member/Admin: <%= member.member_username %></p>
+          <% } else {%>
+          <p>Current Admin: <%= member.member_username %></p>
+          <% } %>
+        </div>
+        <div class="indexLogCreate">
+          <a href="/create-message-form">Create Message</a>
+          <a href="/log-out">Log Out</a>
+        </div>
+      </div>
+      <div class="communityLogs"><p>community logs:</p></div>
+
+      <% messages.forEach(message => { %>
+      <div class="messageContainer">
+        <div class="titleMember">
+          <p class="logTitle">Title: <%= message.message_title %> |</p>
+          <p>Member: <%= message.member_username %></p>
+        </div>
+        <div class="indexText"><p>Text: <%= message.message_text %></p></div>
+        <div class="indexDate"><p><%= message.message_timestamp %></p></div>
+        <form action="/delete-message" method="POST">
+          <input type="hidden" name="messageId" value="<%= message._id %>" />
+          <div>
+            <button class="deleteButton" type="submit">
+              <span class="material-symbols-outlined"> delete </span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <% }); %> <% } else %> <% if (member &&
+      member.membership_status.includes("Member")&&
+      !member.membership_status.includes("Admin")){%>
+      <div class="indexHead">
+        <div class="indexMember">
+          <p>Current Member: <%= member.member_username %></p>
+        </div>
+        <div class="indexLogCreate">
+          <a href="/create-message-form">Create Message</a>
+          <a href="/log-out">Log Out</a>
+        </div>
+      </div>
+      <div class="communityLogs"><p>community logs:</p></div>
+
+      <% messages.forEach(message => { %>
+      <div class="messageContainer">
+        <div class="titleMember">
+          <p class="logTitle">Title: <%= message.message_title %> |</p>
+          <p>Member: <%= message.member_username %></p>
+        </div>
+        <div class="indexText"><p>Text: <%= message.message_text %></p></div>
+        <div class="indexDate"><p><%= message.message_timestamp %></p></div>
+      </div>
+      <% }); %> <% } else if(!member){ %>
+      <div class="indexLogInContainer">
+        <div class="logInTitle"><p>Member log in</p></div>
+        <div class="logInUserPass">
+          <form action="/log-in" method="POST">
+            <label for="username">Username</label>
+            <input name="username" type="text" />
+            <label for="password">Password</label>
+            <input name="password" type="password" />
+            <button>Log In</button>
+          </form>
+        </div>
+      </div>
+
+      <% messages.forEach(message => { %>
+      <div class="messageContainer">
+        <div class="titleMember">
+          <p>Title: <%= message.message_title %></p>
+        </div>
+
+        <p>Text: <%= message.message_text %></p>
+      </div>
+      <% }); %> <%}%>
+    </div>
+  </body>
 </html>

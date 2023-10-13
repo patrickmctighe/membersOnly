@@ -10,8 +10,10 @@ router.get('/sign-up', memberController.signUpGet);
 router.post('/log-in', memberController.logIn);
 router.get('/log-out', memberController.logOut);
 
-router.post('create-message', memberController.create-message-post)
-router.get('/create-message', memberController.create-message-get)
+router.post('/create-message-form', memberController.create_message_post)
+router.get('/create-message-form', memberController.create_message_get)
+
+router.post('/delete-message', memberController.delete_message)
 
 
 module.exports = router;
