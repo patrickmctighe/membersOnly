@@ -1,5 +1,5 @@
 {
-  "name": "membersonly",
+  "name": "npm",
   "version": "1.0.0",
   "description": "a members messaging app",
   "main": "index.js",
