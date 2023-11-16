@@ -131,7 +131,7 @@ padding:1em
 }
 
 
-@media (min-width:640px) {   .container{
+@media (max-width:640px) {   .container{
     height: 90%;
     width: 98%;
         overflow-y: auto;
